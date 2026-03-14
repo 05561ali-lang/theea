@@ -1,0 +1,56 @@
+
+class AIStoreAssistant{
+
+constructor(products){
+this.products = products
+}
+
+detectIntent(text){
+
+text=text.toLowerCase()
+
+if(text.includes("ارخص")) return "cheap"
+
+if(text.includes("افضل")) return "best"
+
+if(text.includes("تحت")) return "price_limit"
+
+return "search"
+
+}
+
+handle(query){
+
+const intent=this.detectIntent(query)
+
+switch(intent){
+
+case "cheap":
+
+return this.products.sort((a,b)=>a.price-b.price).slice(0,5)
+
+case "best":
+
+return this.products.sort((a,b)=>b.sales-a.sales).slice(0,5)
+
+case "price_limit":
+
+const m=query.match(/\d+/)
+
+if(!m) return []
+
+const limit=parseInt(m[0])
+
+return this.products.filter(p=>p.price<=limit)
+
+default:
+
+return this.products.filter(p=>p.title.toLowerCase().includes(query))
+
+}
+
+}
+
+}
+
+export default AIStoreAssistant
