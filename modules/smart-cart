@@ -1,0 +1,22 @@
+
+export function smartCart(cart,products){
+
+let suggestions=[]
+
+cart.forEach(item=>{
+
+products.forEach(p=>{
+
+if(p.category===item.category && p.id!==item.id){
+
+suggestions.push(p)
+
+}
+
+})
+
+})
+
+return suggestions.slice(0,4)
+
+}
