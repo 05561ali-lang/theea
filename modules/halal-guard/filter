@@ -1,0 +1,12 @@
+
+import forbidden from "../../config/haram_keywords.json"
+
+export function halalFilter(product){
+
+return !forbidden.some(word=>
+
+product.title.toLowerCase().includes(word)
+
+)
+
+}
