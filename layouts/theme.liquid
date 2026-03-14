@@ -28,3 +28,28 @@
 </html>
 {% section 'ai-assistant' %}
 {% section 'cart-section' %}
+<script>
+
+const storeProducts = [
+
+{% for product in collections.all.products %}
+
+{
+
+id: "{{ product.id }}",
+
+title: "{{ product.title }}",
+
+price: {{ product.price }},
+
+sales: {{ product.orders_count }},
+
+category: "{{ product.type }}"
+
+},
+
+{% endfor %}
+
+]
+
+</script>
