@@ -1,10 +1,103 @@
+<section class="product-page">
 
-<section class="product-grid">
+<div class="product-container">
 
-{% for product in products %}
+<div class="product-gallery">
 
-{% render 'product-card', product: product %}
+{% for image in product.images %}
+
+<img src="{{ image.src }}" alt="{{ product.title }}" class="product-image">
 
 {% endfor %}
+
+</div>
+
+<div class="product-info">
+
+<h1 class="product-title">
+
+{{ product.title }}
+
+</h1>
+
+<div class="product-price">
+
+{{ product.price }}
+
+</div>
+
+{% if product.stock < 5 %}
+
+<div class="low-stock">
+
+بقي {{ product.stock }} فقط
+
+</div>
+
+{% endif %}
+
+<div class="product-description">
+
+{{ product.description }}
+
+</div>
+
+<button class="add-to-cart" data-product-id="{{ product.id }}">
+
+أضف إلى السلة
+
+</button>
+
+</div>
+
+</div>
+
+<div class="dynamic-offer">
+
+{% if product.sales > 50 %}
+
+<span class="trending">
+
+🔥 منتج رائج
+
+</span>
+
+{% endif %}
+
+</div>
+
+<div class="upsell-section">
+
+<h3>
+
+قد يعجبك أيضاً
+
+</h3>
+
+<div class="upsell-products">
+
+{% for related in product.related_products limit:4 %}
+
+{% render 'product-card', product: related %}
+
+{% endfor %}
+
+</div>
+
+</div>
+
+<div class="reviews-section">
+
+<h3>
+
+آراء العملاء
+
+</h3>
+
+<div id="reviews-container">
+
+</div>
+
+</div>
 
 </section>
