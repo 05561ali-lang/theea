@@ -1,16 +1,11 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
+
 <title>{{ store.name }}</title>
 
-<link rel="stylesheet" href="/assets/css/style.css">
-
-<script src="/assets/js/app.js"></script>
-<script src="/modules/ai-assistant/assistant.js"></script>
-<script src="/modules/smart-cart/smart-cart.js"></script>
-<script src="/modules/dynamic-offers/dynamic-offers.js"></script>
+<link rel="stylesheet" href="{{ 'style.css' | asset_url }}">
 
 </head>
 
@@ -19,12 +14,15 @@
 {% section 'header' %}
 
 <main>
+
 {{ content_for_layout }}
+
 </main>
 
 {% section 'footer' %}
 
-<div id="ai-assistant-widget"></div>
+<script src="{{ 'app.js' | asset_url }}"></script>
 
 </body>
+
 </html>
