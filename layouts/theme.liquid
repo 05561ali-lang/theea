@@ -22,7 +22,40 @@
 {% section 'footer' %}
 
 <script src="{{ 'app.js' | asset_url }}"></script>
+<script src="{{ 'ai-engine.js' | asset_url }}"></script>
+<script src="{{ 'assistant.js' | asset_url }}"></script>
 
+<script>
+
+const storeProducts = [
+
+{% for product in collections.all.products %}
+
+{
+id: "{{ product.id }}",
+title: "{{ product.title }}",
+price: {{ product.price }},
+sales: {{ product.orders_count }},
+category: "{{ product.type }}"
+},
+
+{% endfor %}
+
+]
+
+const haramKeywords = [
+
+{% for word in settings.haram_keywords %}
+
+"{{ word }}",
+
+{% endfor %}
+
+]
+
+initAssistant(storeProducts, haramKeywords)
+
+</script>
 </body>
 
 </html>
