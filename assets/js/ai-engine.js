@@ -103,7 +103,21 @@ return [...this.products]
 .slice(0,5)
 
 }
+getBestInCategory(category){
 
+return this.products
+
+.filter(p => 
+p.category.toLowerCase().includes(category)
+)
+
+.filter(p => this.isHalal(p))
+
+.sort((a,b)=>b.sales-a.sales)
+
+.slice(0,5)
+
+}
 priceLimit(query){
 
 const match = query.match(/\d+/)
