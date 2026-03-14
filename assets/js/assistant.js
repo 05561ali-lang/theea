@@ -25,3 +25,36 @@ document
 .appendChild(msg)
 
 }
+let assistant
+
+function initAssistant(products, haramKeywords){
+
+assistant = new AIStoreAssistant(products, haramKeywords)
+
+}
+
+function askAssistant(){
+
+const query = document
+.getElementById("assistant-input")
+.value
+
+const results = assistant.handleQuery(query)
+
+const container =
+document.getElementById("assistant-messages")
+
+container.innerHTML = ""
+
+results.forEach(product => {
+
+const div = document.createElement("div")
+
+div.innerHTML = `<strong>${product.title}</strong> <br>
+${product.price}`
+
+container.appendChild(div)
+
+})
+
+}
