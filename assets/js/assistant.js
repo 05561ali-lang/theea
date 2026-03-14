@@ -49,12 +49,17 @@ container.innerHTML = ""
 results.forEach(product => {
 
 const div = document.createElement("div")
+div.innerHTML = `
+<div class="assistant-product">
 
-div.innerHTML = `<strong>${product.title}</strong> <br>
-${product.price}`
+<strong>${product.title}</strong>
 
-container.appendChild(div)
+<br>
 
+${product.price}
+
+container.appendChild</div>
+`
 })
 
 }
