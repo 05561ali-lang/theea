@@ -1,0 +1,135 @@
+<section class="cart-page">
+
+<h1 class="cart-title">
+
+سلة التسوق
+
+</h1>
+
+<div class="cart-items">
+
+{% for item in cart.items %}
+
+<div class="cart-item">
+
+<img src="{{ item.image }}" class="cart-image">
+
+<div class="cart-info">
+
+<h3>
+
+{{ item.title }}
+
+</h3>
+
+<p>
+
+{{ item.price }}
+
+</p>
+
+<input type="number"
+
+value="{{ item.quantity }}"
+
+class="cart-qty"
+
+data-id="{{ item.id }}">
+
+<button class="remove-item"
+
+data-id="{{ item.id }}">
+
+حذف
+
+</button>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<div class="cart-summary">
+
+<h2>
+
+الإجمالي
+
+</h2>
+
+<p>
+
+{{ cart.total }}
+
+</p>
+
+<button class="checkout-btn">
+
+إتمام الشراء
+
+</button>
+
+</div>
+
+<div class="free-shipping-bar">
+
+{% assign remaining = 200 | minus: cart.total %}
+
+{% if remaining > 0 %}
+
+<p>
+
+أضف {{ remaining }} للحصول على شحن مجاني
+
+</p>
+
+{% else %}
+
+<p>
+
+🎉 حصلت على شحن مجاني
+
+</p>
+
+{% endif %}
+
+</div>
+
+<div class="cart-upsell">
+
+<h3>
+
+قد يعجبك أيضاً
+
+</h3>
+
+<div class="upsell-grid">
+
+{% for product in collections.all.products limit:4 %}
+
+{% render 'product-card', product: product %}
+
+{% endfor %}
+
+</div>
+
+</div>
+
+<div class="dynamic-offers">
+
+{% if cart.total > 300 %}
+
+<p>
+
+🔥 خصم خاص لك عند الدفع
+
+</p>
+
+{% endif %}
+
+</div>
+
+</section>
