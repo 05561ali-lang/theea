@@ -166,3 +166,96 @@ grid-template-columns:repeat(4,1fr);
 gap:20px;
 
 }
+#ai-assistant {
+
+position:fixed;
+
+bottom:20px;
+
+right:20px;
+
+z-index:999;
+
+}
+
+#assistant-toggle {
+
+background:black;
+
+color:white;
+
+border:none;
+
+padding:12px 14px;
+
+border-radius:50%;
+
+cursor:pointer;
+
+}
+
+#assistant-panel {
+
+width:280px;
+
+height:360px;
+
+background:white;
+
+border:1px solid #ddd;
+
+display:none;
+
+flex-direction:column;
+
+}
+
+.assistant-header {
+
+background:black;
+
+color:white;
+
+padding:10px;
+
+}
+
+#assistant-messages {
+
+padding:10px;
+
+height:230px;
+
+overflow:auto;
+
+}
+
+.assistant-input {
+
+display:flex;
+
+border-top:1px solid #eee;
+
+}
+
+.assistant-input input {
+
+flex:1;
+
+padding:8px;
+
+border:none;
+
+}
+
+.assistant-input button {
+
+background:black;
+
+color:white;
+
+border:none;
+
+padding:8px;
+
+}
