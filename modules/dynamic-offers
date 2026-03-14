@@ -1,0 +1,18 @@
+
+export function dynamicOffer(product){
+
+if(product.stock < 5){
+
+return "Only few items left"
+
+}
+
+if(product.sales > 50){
+
+return "Trending product"
+
+}
+
+return ""
+
+}
