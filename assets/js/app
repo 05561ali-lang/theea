@@ -1,0 +1,14 @@
+
+console.log("Halal Commerce AI Theme 6 Loaded")
+
+function toggleAssistant(){
+
+const el = document.getElementById("assistant-panel")
+
+if(el.style.display==="none"){
+el.style.display="block"
+}else{
+el.style.display="none"
+}
+
+}
