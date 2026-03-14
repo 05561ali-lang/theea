@@ -43,7 +43,10 @@ return "search"
 }
 
 handleQuery(query){
+case "best_perfume":
 
+return this.getBestInCategory("perfume")
+  
 const intent = this.detectIntent(query)
 
 switch(intent){
