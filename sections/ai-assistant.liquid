@@ -35,18 +35,4 @@
 </div>
 
 </div>
-<script>
 
-const haramKeywords = [
-
-{% for word in settings.haram_keywords %}
-
-"{{ word }}",
-
-{% endfor %}
-
-]
-
-initAssistant(storeProducts, haramKeywords)
-
-</script>
