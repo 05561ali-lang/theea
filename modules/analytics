@@ -1,0 +1,16 @@
+
+export function bestSellers(products){
+
+return products.sort((a,b)=>b.sales-a.sales).slice(0,5)
+
+}
+
+export function averageOrderValue(orders){
+
+let total=0
+
+orders.forEach(o=>total+=o.total)
+
+return total/orders.length
+
+}
