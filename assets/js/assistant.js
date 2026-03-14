@@ -24,42 +24,50 @@ document
 .getElementById("assistant-messages")
 .appendChild(msg)
 
-}
-let assistant
+}let assistant
+let conversation
 
 function initAssistant(products, haramKeywords){
 
 assistant = new AIStoreAssistant(products, haramKeywords)
 
+conversation = new ConversationEngine(products)
+
 }
 
 function askAssistant(){
 
-const query = document
-.getElementById("assistant-input")
-.value
-
-const results = assistant.handleQuery(query)
+const query =
+document.getElementById("assistant-input").value
 
 const container =
 document.getElementById("assistant-messages")
 
-container.innerHTML = ""
+const result = conversation.handleMessage(query)
 
-results.forEach(product => {
+if(typeof result === "string"){
+
+const msg = document.createElement("div")
+
+msg.innerText = result
+
+container.appendChild(msg)
+
+}
+
+else{
+
+result.forEach(product => {
 
 const div = document.createElement("div")
-div.innerHTML = `
-<div class="assistant-product">
 
-<strong>${product.title}</strong>
+div.innerHTML = `<strong>${product.title}</strong> <br>
+${product.price}`
 
-<br>
+container.appendChild(div)
 
-${product.price}
-
-container.appendChild</div>
-`
 })
+
+}
 
 }
